@@ -11,11 +11,9 @@ def find_palindrome(n_digits):
     is_palendrome = lambda s: s[:len(s)] == s[len(s)-1::-1] if len(s) % 2 == 0 else False
     max_ab = int('9' * n_digits)
 
-    #NOTE: can this be faster?  is there a way to find the largest palindrome 
-    #without finding all of the palindromes?  as it stands, this seems naive.
     palendromes = []
     for a in range(max_ab, 1, -1):
-        for b in range(max_ab, 1, -1):
+        for b in range(max_ab, a, -1):
             product = b * a 
             if is_palendrome(str(product)):
                 palendromes.append(product)
